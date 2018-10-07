@@ -1,0 +1,71 @@
+##### CSP para 8x8 reinas
+##########################################
+### PARAMETROS ###
+##########################################
+
+\alpha = 0.1;
+\filtering : f ;
+\search :
+ bt,
+# fc,
+# rfla,
+ all_solutions
+# first_solution
+;
+\static_labeling_order :
+ smallest_domain
+# greatest_degree
+# smallest_domain_by_degree
+;
+#\dynamic_labeling_order :
+# smallest_domain
+# smallest_domain_by_degree
+;
+\value_order:
+ bottom_first;
+# top_first;
+# mid_first;
+#
+\verbose :
+ display_solutions
+# display_csp
+# display_filtering
+# display_search
+# display_intervals
+;
+##############################
+### VARIABLES ###
+##############################
+\vi : Z1,Z2,Z3,Z4,Z5,Z6,Z7,Z8 1..8 ;
+##############################
+### RESTRICCIONES ###
+############################## 
+\ci : rd1 , abs (Z1 - Z2) != 1 ;
+\ci : rd2 , abs (Z1 - Z3) != 2 ;
+\ci : rd3 , abs (Z1 - Z4) != 3 ;
+\ci : rd4 , abs (Z1 - Z5) != 4 ;
+\ci : rd5 , abs (Z1 - Z6) != 5 ;
+\ci : rd6 , abs (Z1 - Z7) != 6 ;
+\ci : rd7 , abs (Z1 - Z8) != 7 ;
+\ci : rd10 , abs (Z2 - Z3) != 1 ;
+\ci : rd11 , abs (Z2 - Z4) != 2 ;
+\ci : rd12 , abs (Z2 - Z5) != 3 ;
+\ci : rd13 , abs (Z2 - Z6) != 4 ;
+\ci : rd14 , abs (Z2 - Z7) != 5 ;
+\ci : rd15 , abs (Z2 - Z8) != 6 ;
+\ci : rd18 , abs (Z3 - Z4) != 1 ;
+\ci : rd19 , abs (Z3 - Z5) != 2 ;
+\ci : rd20 , abs (Z3 - Z6) != 3 ;
+\ci : rd21 , abs (Z3 - Z7) != 4 ;
+\ci : rd22 , abs (Z3 - Z8) != 5 ;
+\ci : rd25 , abs (Z4 - Z5) != 1 ;
+\ci : rd26 , abs (Z4 - Z6) != 2 ;
+\ci : rd27 , abs (Z4 - Z7) != 3 ;
+\ci : rd28 , abs (Z4 - Z8) != 4 ;
+\ci : rd31 , abs (Z5 - Z6) != 1 ;
+\ci : rd32 , abs (Z5 - Z7) != 2 ;
+\ci : rd33 , abs (Z5 - Z8) != 3 ;
+\ci : rd36 , abs (Z6 - Z7) != 1 ;
+\ci : rd37 , abs (Z6 - Z8) != 2 ;
+\ci : rd40 , abs (Z7 - Z8) != 1 ;
+\cim : ct1 , <>(Z1,Z2,Z3,Z4,Z5,Z6,Z7,Z8); 

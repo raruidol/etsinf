@@ -1,0 +1,167 @@
+##### CSP para parte3
+##########################################
+### PARAMETROS ###
+##########################################
+
+\alpha = 0.1;
+\fuzzy_cut_step = 0.1;
+\filtering : f ;
+\search :
+# bt,
+# fc,
+ rfla,
+ all_solutions
+# first_solution
+;
+\static_labeling_order :
+ smallest_domain
+# greatest_degree
+# smallest_domain_by_degree
+;
+#\dynamic_labeling_order :
+# smallest_domain
+# smallest_domain_by_degree
+;
+\value_order:
+ bottom_first;
+# top_first;
+# mid_first;
+#
+\verbose :
+ display_solutions
+# display_csp
+# display_filtering
+# display_search
+# display_intervals
+;
+
+##############################
+###       VARIABLES        ###
+############################## 
+
+\vi : P 0..5;
+\vi : H 1..5;
+\vi : Q,B,C 0..3;
+\vr : COSTE 0.1 [1.5, 10.2] ;
+
+
+##############################
+###      CONTRAINTES       ###
+############################## 
+
+\ci: R01, P = H + 1;
+
+\ce: C8 P,
+	([2.0,2.5]) (0.9)
+	([2.5,3.0]) (0.8)
+	([3.0,3.5]) (0.5)
+;
+
+\ce: C5 H Q,
+	\allbut
+	1 1 (0.4)
+	2 2 (0.6)
+	3 3 (0.8)
+	;
+
+\ce: C6 C,
+	\allbut
+	1 (0.1)
+	0 (0.1)
+	;
+
+\ce: C7 B,
+	\allbut
+	1 (0.1)
+	0 (0.1)
+	;
+
+\ce: C1 H,
+	5 (1)
+	4 (0.9)
+	3 (0.8)
+	2 (0.4)
+	1 (0.2)
+	;
+
+\ce: C2 Q,
+	
+	3 (0.8)
+	2 (0.4)
+	1 (0.2)
+	0 (0.1)
+	;
+
+\ce: C3 B,
+	
+	3 (0.8)
+	2 (0.4)
+	1 (0.2)
+	0 (0.1)
+	;
+
+\ce: C4 C,
+	
+	3 (0.8)
+	2 (0.4)
+	1 (0.2)
+	0 (0.1)
+	;
+
+\cim: iguales, = (Q,H);
+
+\doc : doc1
+		\coc : C11
+			\ci: R11, Q > 0;
+			\and
+			\ci: R12, B = 0;
+			\and
+			\ci: R13, C = 0;;
+		\or
+	    \coc : C12
+	    	\ci: R21, Q = 0;
+	    	\and
+	    	\ci: R22, B > 0;
+	    	\and
+	    	\ci: R23, C = 0;;
+	    \or
+	    \coc : C13
+			\ci: R31, Q = 0;
+			\and
+			\ci: R32, B = 0;
+			\and
+			\ci: R33, C > 0;;
+		\or
+		\coc : C14
+			\ci: R41, Q > 0;
+			\and
+			\ci: R42, B > 0;
+			\and
+			\ci: R43, C > 0;;
+		\or
+		\coc : C15
+			\ci: R51, Q > 0;
+			\and
+			\ci: R52, B > 0;
+			\and
+			\ci: R53, C = 0;;
+		\or
+		\coc : C16
+			\ci: R61, Q = 0;
+			\and
+			\ci: R62, B > 0;
+			\and
+			\ci: R63, C > 0;;
+		\or
+		\coc : C17
+			\ci: R71, Q > 0;
+			\and
+			\ci: R72, B = 0;
+			\and
+			\ci: R73, C > 0;;
+
+;
+
+\ci: res, COSTE = H*0.9 + P*0.35 + Q*0.45 + B*0.75 + C*0.2;
+
+\ci: preu, COSTE <= 3.5;

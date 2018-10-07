@@ -1,0 +1,53 @@
+##### CSP para 5x5 reinas
+##########################################
+### PARAMETROS ###
+##########################################
+
+\alpha = 0.1;
+\filtering : f ;
+\search :
+ bt,
+# fc,
+# rfla,
+ all_solutions
+# first_solution
+;
+\static_labeling_order :
+ smallest_domain
+# greatest_degree
+# smallest_domain_by_degree
+;
+#\dynamic_labeling_order :
+# smallest_domain
+# smallest_domain_by_degree
+;
+\value_order:
+ bottom_first;
+# top_first;
+# mid_first;
+#
+\verbose :
+ display_solutions
+# display_csp
+# display_filtering
+# display_search
+# display_intervals
+;
+##############################
+### VARIABLES ###
+##############################
+\vi : Z1,Z2,Z3,Z4,Z5 1..5 ;
+##############################
+### RESTRICCIONES ###
+############################## 
+\ci : rd1 , abs (Z1 - Z2) != 1 ;
+\ci : rd2 , abs (Z1 - Z3) != 2 ;
+\ci : rd3 , abs (Z1 - Z4) != 3 ;
+\ci : rd4 , abs (Z1 - Z5) != 4 ;
+\ci : rd10 , abs (Z2 - Z3) != 1 ;
+\ci : rd11 , abs (Z2 - Z4) != 2 ;
+\ci : rd12 , abs (Z2 - Z5) != 3 ;
+\ci : rd18 , abs (Z3 - Z4) != 1 ;
+\ci : rd19 , abs (Z3 - Z5) != 2 ;
+\ci : rd25 , abs (Z4 - Z5) != 1 ;
+\cim : ct1 , <>(Z1,Z2,Z3,Z4,Z5); 

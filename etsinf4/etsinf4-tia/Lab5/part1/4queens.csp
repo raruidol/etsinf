@@ -1,0 +1,52 @@
+##### c4q.csp = four queens problem
+
+##########################################
+###   Requetes, Parametres et Options  ###
+##########################################
+ 
+\alpha = 0.1;
+\filtering : f ;
+\search : rfla ,
+	all_solutions
+#	best_solution
+#	first_solutions 5
+;
+\static_labeling_order  :
+	smallest_domain 
+#	greatest_degree
+#	smallest_domain_by_degree
+;
+#\dynamic_labeling_order :
+#	smallest_domain 
+#	smallest_domain_by_degree
+#
+;
+\verbose : 
+	display_solutions 
+#	display_csp
+#	display_filtering
+#	display_search
+#       display_intervals
+;
+
+##############################
+###       VARIABLES        ###
+############################## 
+
+\vi : Z1,Z2,Z3,Z4 1..4 ;
+
+##############################
+###      CONTRAINTES       ###
+############################## 
+
+\ci : rd1 , abs (Z1 - Z2) != 1 ;
+\ci : rd2 , abs (Z1 - Z3) != 2 ;
+\ci : rd3 , abs (Z1 - Z4) != 3 ;
+\ci : rd4 , abs (Z2 - Z3) != 1 ;
+\ci : rd5 , abs (Z2 - Z4) != 2 ;
+\ci : rd6 , abs (Z3 - Z4) != 1 ; 
+
+\cim : ct1 , <>(Z1,Z2,Z3,Z4);
+
+#\cim : ct1 , <>(Z1)
+

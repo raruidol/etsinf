@@ -1,0 +1,51 @@
+##### CSP para problema de criptograma
+##########################################
+### PARAMETROS ###
+##########################################
+
+\alpha = 0.1;
+\filtering : f ;
+\search :
+# bt,
+# fc,
+ rfla,
+ all_solutions
+# first_solution
+;
+\static_labeling_order :
+ smallest_domain
+# greatest_degree
+# smallest_domain_by_degree
+;
+#\dynamic_labeling_order :
+# smallest_domain
+# smallest_domain_by_degree
+;
+\value_order:
+ bottom_first;
+# top_first;
+# mid_first;
+#
+\verbose :
+ display_solutions
+# display_csp
+# display_filtering
+# display_search
+# display_intervals
+;
+##############################
+### VARIABLES ###
+##############################
+\vi : A,B,C,D 1..9 ;
+\vi : N1,N2,N3,N4 1 10 100 1000;
+##############################
+### RESTRICCIONES ###
+############################## 
+\ci : C2 , B = A+1;
+\ci : C3 , C = A+2;
+\ci : C4 , D = A+3;
+\ci : C1 , (A*1000+B*100+C*10+D)+(D*1000+C*100+B*10+A)+(A*N1+B*N2+C*N3+D*N4) = 12300;
+\ci : C6 , (100+10*A+B)*20 = (C*10+D)*58;
+\cim: C5 , <> (N1,N2,N3,N4);
+
+

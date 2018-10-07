@@ -1,0 +1,96 @@
+##### CSP para problema de policia
+##########################################
+### PARAMETROS ###
+##########################################
+
+\alpha = 0.1;
+\filtering : f ;
+\search :
+# bt,
+# fc,
+ rfla,
+ all_solutions
+# first_solution
+;
+\static_labeling_order :
+ smallest_domain
+# greatest_degree
+# smallest_domain_by_degree
+;
+#\dynamic_labeling_order :
+# smallest_domain
+# smallest_domain_by_degree
+;
+\value_order:
+ bottom_first;
+# top_first;
+# mid_first;
+#
+\verbose :
+ display_solutions
+# display_csp
+# display_filtering
+# display_search
+# display_intervals
+;
+##############################
+### VARIABLES ###
+##############################
+\vi : A,B,C,D,E 1..5 ;
+##############################
+### RESTRICCIONES ###
+############################## 
+\doc: D1
+		\coc: Tes1
+				\ci : C11 , A = 2;
+			\and
+				\ci : C12 , B <> 3;;
+	\or
+		\coc: Tes1alt
+				\ci : C13 , A <> 2;
+			\and
+				\ci : C14 , B = 3;;;
+\doc: D2
+		\coc: Tes2
+				\ci : C21 , C = 1;
+			\and
+				\ci : C22 , D <> 2;;
+	\or
+		\coc: Tes2alt
+				\ci : C23 , C <> 1;
+			\and
+				\ci : C24 , D = 2;;;
+\doc: D3
+		\coc: Tes3
+				\ci : C31 , D = 3;
+			\and
+				\ci : C32 , C <> 5;;
+	\or
+		\coc: Tes3alt
+				\ci : C33 , D <> 3;
+			\and
+				\ci : C34 , C = 5;;;
+
+\doc: D4
+		\coc: Tes4
+				\ci : C41 , A = 2;
+			\and
+				\ci : C42 , E <> 4;;
+	\or
+		\coc: Tes4alt
+				\ci : C43 , A <> 2;
+			\and
+				\ci : C44 , E = 4;;;
+\doc: D5
+		\coc: Tes5
+				\ci : C51 , E = 4;
+			\and
+				\ci : C52 , B <> 1;;
+	\or
+		\coc: Tes5alt
+				\ci : C53 , E <> 4;
+			\and
+				\ci : C54 , B = 1;;;
+\cim : ct1 , <>(A,B,C,D,E); 
+
+
